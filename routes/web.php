@@ -47,9 +47,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/api/user', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/api/user/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/api/user/logout', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';

@@ -35,7 +35,7 @@
         <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
           <div class="p-6 text-gray-900 dark:text-gray-100">
             <div class="card-header">
-              Manage Products
+              List of {{ $user->name }} books
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -43,24 +43,39 @@
                   <thead>
                   <tr class="table_head">
                     <th>ID</th>
+                    <th>ISBN</th>
                     <th>Name</th>
-                    <th>Total</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Pages</th>
+                    <th>Ditambahkan pada</th>
+                    <th>Deskripsi</th>
                   </tr>
                   </thead>
                   <tbody>
                   @foreach($userbook as $book)
                     <tr class="table_row">
                       <td>{{ $book->id }}</td>
+                      <td>{{ $book->isbn }}</td>
                       <td>{{ $book->title }}</td>
-                      <td>${{ $book->created_at }}</td>
+                      <td>{{ $book->author }}</td>
+                      <td>{{ $book->publisher }}</td>
+                      <td>{{ $book->pages }}</td>
+                      <td>{{ $book->created_at }}</td>
+                      <td>{{ $book->description }}</td>
                     </tr>
                   @endforeach
                   </tbody>
                   <tfoot>
                   <tr>
                     <th>ID</th>
+                    <th>ISBN</th>
                     <th>Name</th>
-                    <th>Total</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Pages</th>
+                    <th>Ditambahkan pada</th>
+                    <th>Deskripsi</th>
                   </tr>
                   </tfoot>
                 </table>

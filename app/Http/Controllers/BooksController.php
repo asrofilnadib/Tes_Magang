@@ -45,7 +45,7 @@ class BooksController extends Controller
 
         Book::create($validatedData);
 
-        return redirect('/book')->with('success', 'Prouduct created.');
+        return redirect('/api/books')->with('success', 'Prouduct created.');
     }
 
     /**

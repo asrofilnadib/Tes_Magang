@@ -57,7 +57,9 @@
                     <tr class="table_row">
                       <td>{{ $book->id }}</td>
                       <td>{{ $book->isbn }}</td>
-                      <td>{{ $book->title }}</td>
+                      <td><a href="{{ route('book.show', ['id' => $book->id]) }}">
+                          {{ $book->title }}
+                        </a></td>
                       <td>{{ $book->author }}</td>
                       <td>{{ $book->publisher }}</td>
                       <td>{{ $book->pages }}</td>

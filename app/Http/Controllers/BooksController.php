@@ -53,7 +53,9 @@ class BooksController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('dashboard.show', [
+          'books' => Book::where('id', $id)->first(),
+        ]);
     }
 
     /**

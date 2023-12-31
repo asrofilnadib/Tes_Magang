@@ -25,7 +25,7 @@ class BookFactory extends Factory
 //            'published_at' => now(),
             'publisher' => fake()->name,
             'pages' => fake()->numberBetween(1, 1000),
-            'description' => fake()->text,
+            'description' => fake()->paragraphs(3, true),
         ];
     }
 }

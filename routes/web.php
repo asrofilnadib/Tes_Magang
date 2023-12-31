@@ -36,6 +36,8 @@ Route::get('/api/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/api/books', [BooksController::class, 'index'])
         ->name('book');
+    Route::get('/api/books/{id}', [BooksController::class, 'show'])
+        ->name('book.show');
     Route::post('/api/books/add', [BooksController::class, 'add'])
         ->name('book.add');
     Route::delete('/api/books/{id}/delete', [BooksController::class, 'destroy'])

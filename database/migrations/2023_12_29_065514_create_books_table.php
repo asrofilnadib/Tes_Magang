@@ -21,7 +21,7 @@ return new class extends Migration
 //            $table->timestamps('published_at');
             $table->string('publisher');
             $table->smallInteger('pages');
-            $table->string('description');
+            $table->text('description');
             $table->softDeletes();
             $table->timestamps();
         });

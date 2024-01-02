@@ -49,7 +49,6 @@
                     <th>Publisher</th>
                     <th>Pages</th>
                     <th>Ditambahkan pada</th>
-                    <th>Deskripsi</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -64,7 +63,6 @@
                       <td>{{ $book->publisher }}</td>
                       <td>{{ $book->pages }}</td>
                       <td>{{ $book->created_at }}</td>
-                      <td>{{ $book->description }}</td>
                     </tr>
                   @endforeach
                   </tbody>
@@ -77,7 +75,6 @@
                     <th>Publisher</th>
                     <th>Pages</th>
                     <th>Ditambahkan pada</th>
-                    <th>Deskripsi</th>
                   </tr>
                   </tfoot>
                 </table>

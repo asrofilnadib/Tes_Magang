@@ -14,11 +14,14 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->foreignId('category_id');
             $table->string('isbn');
             $table->string('title')->unique();
             $table->string('subtitle');
             $table->string('author');
+            $table->string('image')->nullable()->default(null);
 //            $table->timestamps('published_at');
+            $table->string('file_pdf')->nullable()->default(null);
             $table->string('publisher');
             $table->smallInteger('pages');
             $table->text('description');
@@ -32,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product');
+        Schema::dropIfExists('books');
     }
 };

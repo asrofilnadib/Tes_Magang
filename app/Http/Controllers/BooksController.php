@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Category;
+use http\Env\Response;
 use Illuminate\Http\Request;
+use function Laravel\Prompts\error;
 
 class BooksController extends Controller
 {
@@ -13,7 +16,8 @@ class BooksController extends Controller
     public function index()
     {
         return view('book', [
-            'books' => Book::all(),
+            'books' => Book::oldest()->paginate(8),
+            'categories' => Category::all(),
         ]);
     }
 
@@ -37,11 +41,22 @@ class BooksController extends Controller
             'subtitle' => 'required',
             'author' => 'required',
             'publisher' => 'required',
+            'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
+            'file_pdf' => 'required|mimes:pdf|max:4096',
             'pages' => 'required|integer|min:1',
             'description' => 'required',
         ]);
 
+        $pdfFile = $request->file('file_pdf');
+        $image = $request->file('image');
+
+        $pdfPath = $pdfFile->store('pdfs', 'public');
+        $imagePath = $image->store('images', 'public');
+
         $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['category_id'] = $request->input('category_id');
+        $validatedData['pdf_file'] = $pdfPath;
+        $validatedData['image'] = $imagePath;
 
         Book::create($validatedData);
 
@@ -100,5 +115,16 @@ class BooksController extends Controller
         $product->delete();
 
         return back();
+    }
+
+    public function downloadPDF($filename)
+    {
+        $path = storage_path('app/public/pdfs/'. $filename);
+
+        if (file_exists($path)){
+            return response()->download('path', $filename);
+        } else {
+            abort(404);
+        }
     }
 }

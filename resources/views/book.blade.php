@@ -78,6 +78,18 @@
                         <input name="author" value="{{ old('author') }}" type="text" class="form-control" id="author">
                       </div>
                     </div>
+                    <div class="mb-3 row">
+                      <label class="col-lg-2 col-md-3 col-sm-12 col-form-label">images:</label>
+                      <div class="col-lg-10 col-md-9 col-sm-12">
+                        <input name="image" value="" type="file" class="form-control-file" id="image" accept="image/*">
+                      </div>
+                    </div>
+                    <div class="mb-3 row">
+                      <label class="col-lg-2 col-md-3 col-sm-12 col-form-label">PDF File:</label>
+                      <div class="col-lg-10 col-md-9 col-sm-12">
+                        <input name="file_pdf" value="" type="file" class="form-control-file" id="file_pdf" accept=".pdf">
+                      </div>
+                    </div>
                   </div>
                   <div class="col">
                     <div class="mb-3 row">
@@ -94,10 +106,20 @@
                       </div>
                     </div>
                     <div class="mb-3 row">
+                      <label class="col-lg-3 col-md-4 col-sm-12 col-form-label">Category</label>
+                      <div class="col-lg-9 col-md-8 col-sm-12">
+                        <select class="form-control" name="category_id">
+                          @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+                    <div class="mb-3 row">
                       <label class="col-lg-3 col-md-4 col-sm-12 col-form-label">Description:</label>
                       <div class="col-lg-9 col-md-8 col-sm-12">
                         <textarea name="description" class="form-control"
-                                  id="description">{{ old('description') }}</textarea>
+                                  id="description" style="height: 140px">{{ old('description') }}</textarea>
                       </div>
                     </div>
                   </div>
@@ -154,6 +176,10 @@
                 @endforeach
                 </tbody>
               </table>
+
+              <div class="custom-pagination">
+                {{ $books->links('vendor.pagination.tailwind') }}
+              </div>
             </div>
           </div>
         </div>

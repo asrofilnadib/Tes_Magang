@@ -9033,6 +9033,36 @@ strong {
   margin: 5px;
   font-size: 11px; }
 
+.custom-pagination {
+  margin-top: 20px; /* Add spacing at the top */
+}
+
+.custom-pagination .pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.custom-pagination .pagination li {
+  margin-right: 10px; /* Add spacing between pagination items */
+}
+
+.custom-pagination .pagination li a {
+  color: #333;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.custom-pagination .pagination li.active a {
+  background-color: #007BFF;
+  color: #fff;
+  border: 1px solid #007BFF;
+}
+
+
 @media (max-width: 767.98px) {
   .fc-toolbar .fc-left,
   .fc-toolbar .fc-right,

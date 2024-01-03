@@ -1,6 +1,4 @@
-# Nama Repositori
-
-Pre-test Magang PT. Nusantara Infrastructure
+# Pre-test Magang PT. Nusantara Infrastructure
 
 ## Deskripsi
 

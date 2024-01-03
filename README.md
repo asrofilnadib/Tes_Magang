@@ -1,23 +1,41 @@
-# Nama Repositori
+## Skill Test Assignment Backend Developer at CTARSA Internship Program
 
-Pre-test Magang PT. Nusantara Infrastructure
+### Description
 
-## Deskripsi
+Welcome to this repository! This repository has been developed as part of the skill test for the CTARSA Internship Program 2024 for the CRUD (Create, Read, Update, Delete) project and authentication system using either PHP Native or Laravel framework and RESTful API.
 
-Selamat datang di repositori ini! Repositori ini dikembangkan sebagai bagian dari tes magang di PT. Nusantara Infrastructure untuk proyek CRUD (Create, Read, Update, Delete) dan sistem autentikasi menggunakan framework Laravel dan RESTful API.
+### Internship Test Objectives
 
-## Tujuan Tes Magang
+1. **CRUD Development:**
+   1. Implementation of CRUD operations for relevant entities (e.g., "Books," "Users," or other entities) using either PHP Native or Laravel framework. 
+   2. Inclusion of basic functions such as adding, retrieving, updating, and deleting data.
 
-1. **Pengembangan CRUD:**
-   1. Implementasi operasi CRUD untuk entitas terkait (contoh: "Books", "Users", atau entitas lainnya) menggunakan Laravel. 
-   2. Menyertakan fungsi-fungsi dasar seperti menambahkan, mengambil, memperbarui, dan menghapus data.
+2. **Authentication System:**
+   1. Laravel Breeze is utilized as the foundation for authentication in this project.
+   2. Utilization of Breeze features such as user registration, email verification, login, logout, and password reset.
+   3. Every CRUD operation involves user authentication to ensure secure access and compliance with specified access rights.\
 
-2. **Sistem Autentikasi:**
-   1. Laravel Breeze digunakan sebagai fondasi otentikasi dalam proyek ini. 
-   2. Memanfaatkan fitur-fitur Breeze seperti pendaftaran pengguna, verifikasi email, masuk, keluar, dan reset kata sandi.
-   3. Setiap operasi CRUD melibatkan autentikasi pengguna untuk memastikan akses yang aman dan sesuai dengan hak akses yang ditentukan.
+## CTARSA Backend Developer Internship Skill Test
 
-## Panduan Pengguna
+### Project Requirements:
+- Language: PHP Native or Framework (Codeigniter/Laravel)
+- Database: MySQL
+- Frontend: JavaScript, HTML, CSS Native or Framework
+
+### Test: Creating a CMS (Content Management System) for content management containing:
+1. Login (Admin and User)
+2. Register 
+3. List of Book Data 
+4. Book Data List with filters based on Book Category 
+5. Master Data Book Actions (Create, Read, Update, Delete, and Upload File)
+6. Book Data Form includes: Book Title, Book Category (dropdown), Description, Quantity, Upload Book File (PDF), and Upload Book Cover (jpeg/jpg/png)
+7. List of Book Category Data 
+8. Master Data Category Book Actions (Create, Read, Update, Delete)
+9. Book Category Data Form includes: Book Category Name 
+10. Export Data (Excel/PDF) from Book Data 
+11. Access Rights (Privilege) restricted to only open, view, edit, and delete the List of Book Data according to the data created by the user itself (except for admin)
+
+## Installation Guide
 
 1). Install Composer in your computer
 

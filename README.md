@@ -2,7 +2,7 @@
 
 ## Deskripsi
 
-Selamat datang di repositori ini! Repositori ini dikembangkan sebagai bagian dari tes magang di PT. Nusantara Infrastructure untuk proyek CRUD (Create, Read, Update, Delete) dan sistem autentikasi menggunakan framework Laravel dan RESTful API.
+Selamat datang di repositori ini! Repositori ini dikembangkan sebagai bagian dari tes magang di Digital Media Internship Program 2024 di detikcom untuk proyek CRUD (Create, Read, Update, Delete) dan sistem autentikasi menggunakan framework Laravel dan RESTful API.
 
 ## Tujuan Tes Magang
 

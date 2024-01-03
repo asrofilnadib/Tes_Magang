@@ -54,9 +54,4 @@ class User extends Authenticatable
     {
         return $this->attributes['role'];
     }
-
-    public function setRole($role)
-    {
-      $this->attributes['role'] = $role;
-    }
 }

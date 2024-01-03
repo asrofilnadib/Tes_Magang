@@ -23,7 +23,7 @@ class BookFactory extends Factory
             'title' => fake()->words(3, true),
             'subtitle' => fake()->userName(),
             'author' => fake()->name,
-            'image' => fake()->imageUrl(),
+//            'image' => fake()->imageUrl(),
             'file_pdf' => fake()->file(storage_path('app\public\pdfs'), public_path('storage\site'), false),
             'publisher' => fake()->name,
             'pages' => fake()->numberBetween(1, 1000),

@@ -1,7 +1,8 @@
 <?php
 
     use App\Http\Controllers\BooksController;
-    use App\Http\Controllers\ProfileController;
+  use App\Http\Controllers\CategoryController;
+  use App\Http\Controllers\ProfileController;
     use App\Http\Middleware\HandleInertiaRequests;
   use App\Models\Book;
   use Illuminate\Support\Facades\Auth;
@@ -46,7 +47,15 @@ Route::middleware('auth')->group(function () {
         ->name('book.edit');
     Route::put('/api/books/{id}/update', [BooksController::class, 'update'])
         ->name('book.update');
+    Route::get('/api/download_pdf/{filename}', [BooksController::class, 'downloadPDF'])
+        ->name('download.pdf');
 });
+
+Route::get('/api/category', [CategoryController::class, 'index'])
+  ->name('category');
+Route::get('/api/category/{category:name}', [CategoryController::class, 'show'])
+  ->name('category.show')
+  ->middleware('auth');
 
 Route::middleware('auth')->group(function () {
     Route::get('/api/user', [ProfileController::class, 'edit'])->name('profile.edit');

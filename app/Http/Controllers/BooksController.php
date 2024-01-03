@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Category;
 use http\Env\Response;
+use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Intervention\Image\ImageManager;
+use function Laravel\Prompts\alert;
 use function Laravel\Prompts\error;
 
 class BooksController extends Controller
@@ -15,10 +19,17 @@ class BooksController extends Controller
      */
     public function index()
     {
-        return view('book', [
-            'books' => Book::oldest()->paginate(8),
+        if (Auth::check()){
+          $user = Auth::user();
+          $books = $user->getRole() === 'admin' ? Book::oldest()->paginate(8) : $user->books;
+          return view('book', [
+            'books' => $books,
             'categories' => Category::all(),
-        ]);
+          ]);
+        } else {
+          Alert::warning('', 'You need to login in order to access books page.');
+        }
+
     }
 
     /**
@@ -42,7 +53,7 @@ class BooksController extends Controller
             'author' => 'required',
             'publisher' => 'required',
             'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
-            'file_pdf' => 'required|mimes:pdf|max:4096',
+            'file_pdf' => 'required|mimes:pdf|max:2048',
             'pages' => 'required|integer|min:1',
             'description' => 'required',
         ]);
@@ -57,6 +68,10 @@ class BooksController extends Controller
         $validatedData['category_id'] = $request->input('category_id');
         $validatedData['pdf_file'] = $pdfPath;
         $validatedData['image'] = $imagePath;
+
+       /* $manager = new ImageManager(new Intervention\Image\Drivers\Gd\Driver());
+        $image = $manager->read($validatedData['image']);
+        $image->resize(500, 300)->save();*/
 
         Book::create($validatedData);
 
@@ -122,7 +137,7 @@ class BooksController extends Controller
         $path = storage_path('app/public/pdfs/'. $filename);
 
         if (file_exists($path)){
-            return response()->download('path', $filename);
+            return response()->download($path, $filename);
         } else {
             abort(404);
         }
